@@ -26,7 +26,7 @@ public class User {
     @Column private @NotNull String email;
     @Column private @NotNull String address;
     @Column private @NotNull String birth;
-    @Column private @NotNull String tel;
+    @Column private String tel;
     @Column private String token;
 
 
