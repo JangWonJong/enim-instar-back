@@ -1,6 +1,7 @@
 package come.mine.User.domain;
 
 import com.sun.istack.NotNull;
+import come.mine.Post.domain.TimeEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,19 +16,15 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Table(name = "users")
-public class User {
+public class User extends TimeEntity{
     @Id
     @Column(name = "user_id")
     @GeneratedValue
     private long userId;
     @Column private @NotNull String username;
     @Column private @NotNull String password;
-    @Column private @NotNull String name;
+    @Column private @NotNull String nickname;
     @Column private @NotNull String email;
-    @Column private @NotNull String address;
-    @Column private @NotNull String birth;
-    @Column private String tel;
-    @Column private String token;
 
 
 }

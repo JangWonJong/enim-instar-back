@@ -9,4 +9,6 @@ public interface PostService {
     int updateView(Long id);
 
     Optional<Post> findById(Long id);
+
+    Long save(PostDTO.Request dto, String nickname);
 }
