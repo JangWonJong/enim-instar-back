@@ -15,7 +15,7 @@ public class PostController {
     private final PostService postService;
 
     @PostMapping("/posts")
-    public ResponseEntity save(@RequestBody PostDTO.Request dto, UserDTO userDTO){
-        return ResponseEntity.ok(postService.save(dto, userDTO.getNickname()));
+    public ResponseEntity save(@RequestBody PostDTO.Request postDTO, UserDTO userDTO){
+        return ResponseEntity.ok(postService.save(postDTO, userDTO.getNickname()));
     }
 }
