@@ -2,16 +2,14 @@ package come.mine.User.domain;
 
 import com.sun.istack.NotNull;
 import come.mine.Post.domain.TimeEntity;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.repository.cdi.Eager;
 
 import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity @Eager
 @Getter
 @Setter

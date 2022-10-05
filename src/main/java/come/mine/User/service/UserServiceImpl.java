@@ -1,6 +1,7 @@
 package come.mine.User.service;
 
 
+import come.mine.Auth.domain.Messenger;
 import come.mine.User.domain.User;
 import come.mine.User.domain.UserDTO;
 import come.mine.User.repository.UserRepository;
@@ -17,9 +18,19 @@ public class UserServiceImpl implements UserService{
 
 
     @Override
-    public List<User> save(UserDTO userDTO) {
+    public Messenger save(UserDTO userDTO) {
         System.out.println("전달된 정보:" + userDTO.toString());
         String result = "";
-        return null;
+        if (userRepository.findByUsername(userDTO.getUsername()).isEmpty()) {
+            userRepository.save(User.builder()
+                    .username(userDTO.getUsername())
+                    .nickname(userDTO.getNickname())
+                    .password(userDTO.getPassword())
+                    .email(userDTO.getEmail()).build());
+            result = "SUCCESS";
+        }else {
+            result = "FAIL";
+        }
+        return Messenger.builder().message(result).build();
     }
 }
